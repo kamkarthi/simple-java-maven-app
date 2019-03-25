@@ -5,14 +5,14 @@ pipeline {
         agent { label 'ecs' }
 
         steps {
-          sh 'echo Build Stage'
+          sh 'mvn -B -DskipTests clean package'
         }
       }
       stage('Test') {
         agent { label 'ecs' }
 
         steps {
-          sh 'echo TEST Stage'
+          sh 'mvn test'
         }
       }
     }
