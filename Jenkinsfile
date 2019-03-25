@@ -1,4 +1,3 @@
-#!groovy
 pipeline {
   agent none
     stages {
@@ -6,7 +5,14 @@ pipeline {
         agent { label 'ecs' }
 
         steps {
-          sh 'echo hello'
+          sh 'echo Build Stage'
+        }
+      }
+      stage('Test') {
+        agent { label 'ecs' }
+
+        steps {
+          sh 'echo TEST Stage'
         }
       }
     }
